@@ -1,0 +1,11 @@
+{
+  "name": "joycalc",
+  "version": "1.0.0",
+  "description": "An app to track your happiness evel",
+  "main": "index.js",
+  "scripts": {
+    "test": "export NODE_ENV=test && jasmine"
+  },
+  "author": "",
+  "license": "ISC"
+}
