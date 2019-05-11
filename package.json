@@ -4,8 +4,18 @@
   "description": "An app to track your happiness evel",
   "main": "index.js",
   "scripts": {
-    "test": "export NODE_ENV=test && jasmine"
+    "test": "set NODE_ENV=test&& jasmine",
+    "start": "node src/server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine": "^3.4.0",
+    "request": "^2.88.0"
+  },
+  "dependencies": {
+    "dotenv": "^5.0.0",
+    "ejs": "^2.5.7",
+    "express": "^4.16.4"
+  }
 }
