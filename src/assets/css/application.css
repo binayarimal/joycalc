@@ -1,19 +1,47 @@
 
 
   body{
-
+ padding-top: 60px;
   text-align: center;
 }
+main{
+  padding-top:1px
+}
+ .staticMain{
+   background: rgb(221,162,54);
+background: radial-gradient(circle, rgba(221,162,54,0.1) 31%, rgba(203,105,67,0.2) 100%);
+
+ }
+ .signUpMain{
+   background-image:url("./sky-1407164-1280x850.jpg");
+     background-repeat: no-repeat;
+   max-width: 100%;
+   height: 100vh;
+   padding:20px;
+ }
+
+form {
+  height:90%;
+  width:350px;
+  background-color:rgb(242,242,242,0.3);
+  padding:20px;
+  margin-right:auto;
+  margin-left: auto;
+  box-shadow:0 10px 20px rgba(0, 0, 0, 0.19);
+  margin-top:50px;
 
 
+
+}
 .landing-background{
-    background-image:url("./beach-beautiful-blue-536812.jpg");
+    background-image:url("./sunset-1314470-1280x960.jpg");
     width: 100%;
-    height: 400px;
-    background-position: center center;
-    background-repeat: no-repeat;
+    height: 70vh;
     clip-path:polygon(0 0, 100% 0, 100% 90%,0 100%);
     background-attachment:  scroll;
+    background-repeat: no-repeat;
+
+
 
 
   }
