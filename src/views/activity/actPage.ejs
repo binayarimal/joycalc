@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../static/partials/head.ejs %>
+  </head>
+  <body>
+
+
+
+    <% include ../static/partials/navbar.ejs %>
+
+    <main class="container">
+
+      <% include ../static/partials/messages.ejs %>
+
+
+
+
+        <div class="form-group">
+          <label for="activity">Activity</label>
+          <input type="activity" class="form-control" name="activity" aria-describedby="activityHelp" placeholder="Enter activity">
+          <label for="activity">date</label>
+          <input type="date" class="form-control" name="activity" aria-describedby="activityHelp" placeholder="Enter activity">
+
+        </div>
+
+
+     <label>
+       <input name="group1" type="radio" value="1" />
+
+     </label>
+
+     <label>
+       <input name="group1" type="radio" value="2" />
+
+     </label>
+
+     <label>
+       <input name="group1" type="radio"  value= "3" />
+
+     </label>
+
+
+
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Activity</button>
+
+    </main>
+
+    <% include ../static/partials/baseScripts.ejs %>
+
+  </body>
+</html>
