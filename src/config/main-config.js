@@ -9,6 +9,7 @@ const expressValidator = require("express-validator");
 
 module.exports = {
   init(app, express){
+    appConfig.init();
     app.set("views", viewsFolder);
     app.set("view engine", "ejs");
     app.use(express.static(path.join(__dirname, "..", "assets")));
@@ -27,7 +28,7 @@ module.exports = {
       next();
     });
     app.use(expressValidator());
- 
+
 
     passportConfig.init(app)
 
