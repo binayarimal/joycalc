@@ -1,49 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-   <% include ./partials/head.ejs %>
-    <link rel="stylesheet" href="/css/application.css">
-  </head>
-  <body>
+<head>
+  <% include ./partials/head.ejs %>
+  <link rel="stylesheet" href="/css/application.css">
+</head>
+<body>
 
-      <main class="container staticMain">
-        <% include ./partials/navbar.ejs %>
-           <% include ./partials/messages.ejs %>
+  <main class="container staticMain">
+    <% include ./partials/navbar.ejs %>
+    <% include ./partials/messages.ejs %>
 
-        <header class="jumbotron my-4 landing-background">
+    <header class="jumbotron my-4 landing-background">
 
-          <h1 class="display-3 hero-title text-white">Welcome to JoyCalc</h1>
-          <p class="lead text-white">An application to track your daily moods</p>
-          <a href="#" class="btn button">Generate Your Result</a>
-        </header>
+      <h1 class="display-3 hero-title text-white">Welcome to JoyCalc</h1>
+      <p class="lead text-white">An application to track your daily moods</p>
+      <% if(currentUser){%>
+        <a href="/stat/<%= currentUser.id %>" class="btn button" >Generate Your Result</a>
 
-        <!-- Page Features -->
-        <section class="row text-center">
+        <%}%>
+      </header>
 
-          <section class="col-lg-4 ">
-              <div class="Point1">
+      <!-- Page Features -->
+      <section class="row text-center">
+
+        <section class="col-lg-4 ">
+          <div class="Point1">
             <h4 class="card-title">Create Your Account</h4>
             <p class="card-text">Haven't Signed Up Yet? Click this button to create an Account.</p>
             <a href="/users/sign_up_form" class="btn btn-primary">Sign Up</a>
-            </div>
-          </section>
+          </div>
+        </section>
 
-          <section class="col-lg-8">
-              <div class="Point2" >
+        <section class="col-lg-8">
+          <div class="Point2" >
             <h4 class="card-title">Track Your Happiness</h4>
             <p class="card-text">Start tracking your activity today; and get a result of your result 1 week later.</p>
             <a href="/activityPage" class="fixed-bottom btn button">Track my Activities</a>
-            </div>
-          </section>
-
-
-
+          </div>
         </section>
-        <!-- /.row -->
 
-      </main>
-      <!-- /.container -->
 
-      <% include ./partials/baseScripts.ejs %>
-    </body>
-</html>
+
+      </section>
+      <!-- /.row -->
+
+    </main>
+    <!-- /.container -->
+
+    <% include ./partials/baseScripts.ejs %>
+  </body>
+  </html>
