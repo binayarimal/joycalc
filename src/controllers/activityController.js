@@ -4,7 +4,7 @@ const statistics = require("../methods/statFunctions.js")
 
 module.exports = {
   actForm(req,res,next){
-    req.flash("notice", "testing");
+
     res.render("activity/actPage")
   },
   createActivity(req, res,next){
@@ -68,7 +68,13 @@ module.exports = {
         req.flash("error,  unable to get your activity scores ")
         console.log(err)
       } else{
-        console.log(activities)
+        let stats = {
+          average : statistics.average(activities),
+          allActs: statistics.allActivities(activities),
+          topsAndBottom:statistics.scoreSorted(activities),
+          mostFrequent: statistics.frequencySorted(activities)
+        };
+        res.render("statistics/statPage", {stats});
       }
     })
 
