@@ -34,8 +34,12 @@
         <section class="col-lg-8">
           <div class="Point2" >
             <h4 class="card-title">Track Your Happiness</h4>
-            <p class="card-text">Start tracking your activity today; and get a result of your result 1 week later.</p>
+            <p class="card-text">Start tracking your activity today, and get your weekly result.</p>
+  <% if(currentUser){%>
             <a href="/activityPage" class="fixed-bottom btn button">Track my Activities</a>
+            <%}else{%>
+              <a href="/users/sign_in_form" class="fixed-bottom btn button">Track my Activities</a>
+              <%}%>
           </div>
         </section>
 

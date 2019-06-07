@@ -10,8 +10,9 @@ module.exports = {
   createActivity(req, res,next){
     activityQuery.getActivity(req, (err, activity) =>{
       if (err){
-        res.redirect("/");
         req.flash("error", "wasnot able to create activity");
+        res.redirect("/");
+
         console.log(err)
       } else{
         if (activity === null){
@@ -21,8 +22,9 @@ module.exports = {
           }
           activityQuery.addActivity(newActivity, (err, activity)=>{
             if(err){
-              res.redirect("/");
               req.flash("error", "was not able to create activity");
+              res.redirect("/");
+
               console.log(err)
             }  else{
               let newScore = {
@@ -35,6 +37,7 @@ module.exports = {
                   console.log(err)
                   res.redirect(req.headers.referer);
                 } else{
+                  req.flash("notice", "successfully added new activity and score");
                   res.redirect(req.headers.referer);
                 }
               })
@@ -53,7 +56,7 @@ module.exports = {
               console.log(err)
               res.redirect(req.headers.referer);
             } else{
-
+              req.flash("notice", "successfully added score to your activity");
               res.redirect(req.headers.referer);
             }
           })
@@ -74,10 +77,6 @@ module.exports = {
           topsAndBottom:statistics.scoreSorted(activities),
           mostFrequent: statistics.frequencySorted(activities)
         };
-        console.log(stats.average);
-        console.log(stats.allActs);
-        console.log(stats.topsAndBottom);
-        console.log(stats.mostFrequent)
         res.render("statistics/statPage", {stats});
       }
     })
