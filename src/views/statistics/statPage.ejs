@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../static/partials/head.ejs %>
+  <link rel="stylesheet" href="/css/application.css">
+</head>
+<body class="staticMain">
+
+  <main class=" text-center ">
+    <% include ../static/partials/navbar.ejs %>
+    <% include ../static/partials/messages.ejs %>
+
+    <header>
+
+      <h1 class="display-3 hero-title text-center ">Here is what you've been up to this week</h1>
+    </header>
+
+
+
+    <section class = "text-center">
+      <h5 class = "text-primary">Your overall mood score <h5>
+        <h1><%= stats.average %></h1>
+      </section>
+
+      <h5 class = "text-primary">Activities that make you the happiest <h5>
+        <ul class="list-group act-Ul">
+
+          <% stats.topsAndBottom[0].forEach((top)=>{ %>
+            <li class="list-group act-list"><%= top[0] %>
+            </li>
+            <%   }) %>
+
+          </ul>
+          <h5 class = "text-primary" >Activity that make you the least happy <h5>
+
+            <ul class="list-group act-Ul">
+              <li class="list-group act-list">
+                <%= stats.topsAndBottom[1][0] %>
+              </li>
+            </ul>
+            <h5 class = "text-primary">Most frequently scored activities <h5>
+              <ul class="list-group act-Ul">
+                <li class="list-group act-list">
+                  <%= stats.mostFrequent[0][0] %>
+                </li>
+              </ul>
+              <form style="display:initial" action="/allActivities" method="get">
+         <button type="submit" class="btn btn-primary">Show All Activities</button>
+       </form>
+
+
+            </main>
+            <!-- /.container -->
+
+            <% include ../static/partials/baseScripts.ejs %>
+          </body>
+          </html>

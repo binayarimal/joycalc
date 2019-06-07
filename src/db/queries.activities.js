@@ -20,6 +20,7 @@ module.exports = {
     let weekAgo = new Date()
     weekAgo.setDate(weekAgo.getDate() - 7);
     return Activity.findAll({
+      where:{userId:req.user.id},
       include: [{
         model: Score,
         as: "Scores",
@@ -36,7 +37,10 @@ module.exports = {
     })
   },
   getActivity(req, callback){
-    return Activity.findOne({where:{activity:req.body.activity}})
+    return Activity.findOne({where:
+      {activity:req.body.activity,
+        userId:req.user.id
+    }})
     .then((activity)=>{
       callback(null, activity)
     })
@@ -47,7 +51,6 @@ module.exports = {
   },
   deleteActivity(req, callback){
 
-    // #1
     return activity.findById(req.params.id)
     .then((activity) => {
 

@@ -17,10 +17,10 @@ module.exports = {
     scores= scores.reduce((a,b)=>{return (a+b)});
     return scores/length
   },
-  scoreSorted(activities){
+    scoreSorted(activities){
     let sorted = [];
     let acts={};
-    let topThree = {};
+    let topThree = [];
     let bottom
     for(let i =0; i< activities.length; i++){
       for(let j =0; j< activities[i].Scores.length; j++){
@@ -43,7 +43,7 @@ module.exports = {
 
   for (let i =0; i<3; i++){
     if (sorted[i]){
-      topThree[sorted[i][0]]=sorted[i][1]
+      topThree.push(sorted[i])
     }
   }
   bottom = sorted[sorted.length-1]
@@ -52,7 +52,7 @@ module.exports = {
   },
   frequencySorted(activities){
     let sorted = [];
-    topThree = {};
+    topThree = [];
     let acts={};
     for(let i =0; i< activities.length; i++){
       for(let j =0; j< activities[i].Scores.length; j++){
@@ -71,7 +71,7 @@ module.exports = {
    })
    for (let i =0; i<3; i++){
      if (sorted[i]){
-       topThree[sorted[i][0]]=sorted[i][1]
+       topThree.push(sorted[i])
      }
    }
    return topThree

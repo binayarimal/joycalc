@@ -74,10 +74,27 @@ module.exports = {
           topsAndBottom:statistics.scoreSorted(activities),
           mostFrequent: statistics.frequencySorted(activities)
         };
+        console.log(stats.average);
+        console.log(stats.allActs);
+        console.log(stats.topsAndBottom);
+        console.log(stats.mostFrequent)
         res.render("statistics/statPage", {stats});
       }
     })
 
 },
+  allActivities (req, res, next){
+    activityQuery.getAllActivities(req,( err, activities)=>{
+      if (err){
+        res.redirect("/stat/activity");
+        req.flash("error,  unable to get your activitues ")
+        console.log(err)
+      } else{
+      let acts = statistics.allActivities(activities);
+        res.render("statistics/allActivities", {acts});
+      }
+    })
+
+  }
 
 }
