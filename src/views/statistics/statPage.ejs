@@ -17,39 +17,42 @@
 
 
 
-    <section class = "text-center">
+    <section class = "text-center average">
       <h5 class = "text-primary">Your overall mood score <h5>
         <h1><%= stats.average %></h1>
       </section>
     <section>
       <h5 class = "text-primary">Activities that make you the happiest <h5>
         <ul class="list-group act-Ul">
-
+<% if (stats.topsAndBottom[0]){%>
           <% stats.topsAndBottom[0].forEach((top)=>{ %>
             <li class="list-group act-list"><%= top[0] %>
             </li>
-            <%   }) %>
+            <%   }) }%>
           </ul>
       </section>
       <section>
           <h5 class = "text-primary" >Activity that make you the least happy <h5>
           <ul class="list-group act-Ul">
+            <% if(stats.topsAndBottom[1]){%>
               <li class="list-group act-list">
                 <%= stats.topsAndBottom[1][0] %>
               </li>
+              <%}%>
             </ul>
         </section>
         <section>
             <h5 class = "text-primary">Most frequently scored activities <h5>
               <ul class="list-group act-Ul">
                 <li class="list-group act-list">
+                    <% if(stats.mostFrequent[0]){%>
                   <%= stats.mostFrequent[0][0] %>
                 </li>
+                  <%}%>
               </ul>
           </section>
-              <form style="display:initial" action="/allActivities" method="get">
-         <button type="submit" class="btn btn-primary">Show All Activities</button>
-       </form>
+
+         <a style= "margin-bottom:10px;" href = "/allActivities" class="btn btn-primary">Show All Activities</a>
 
 
             </main>

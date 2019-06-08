@@ -14,8 +14,12 @@ module.exports = {
       }
     }
     let length = scores.length
+    if (scores.length>0){
     scores= scores.reduce((a,b)=>{return (a+b)});
-    return scores/length
+    return scores/length}
+    else{
+    return scores
+    }
   },
     scoreSorted(activities){
     let sorted = [];
@@ -37,9 +41,11 @@ module.exports = {
       acts[act] =mapped/ acts[act].length;
       sorted.push([act, acts[act]]);
     }
+    if (sorted.length>0){
       sorted.sort((a, b)=> {
      return b[1] - a[1];
    })
+ };
 
   for (let i =0; i<3; i++){
     if (sorted[i]){
@@ -66,9 +72,11 @@ module.exports = {
     for (let act in acts){
       sorted.push([act, acts[act]]);
     }
+    if(sorted.length>0){
       sorted.sort((a, b)=> {
      return b[1] - a[1];
    })
+ }
    for (let i =0; i<3; i++){
      if (sorted[i]){
        topThree.push(sorted[i])
